@@ -12,4 +12,19 @@ As per the usual procedure, the priority was to find internal email accounts.Imp
 
 ## III.The first failure in the campaign
 
-Resting on the laurels of the SeaBank campaign, I skipped all the setup steps, reused the old payload with the same scenario, and sent it to a large number of users with the intent of achieving a quick victory.The account I used in this campaign was a notification account, and of course, the target users were all selected randomly LOL.
+Resting on the laurels of the SeaBank campaign, I skipped all the setup steps.The account I used in this campaign was a notification account, the list of target users was very large and all randomly selected and of course, the payload I reused remained completely unchanged LOL.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7c9a5fa0-0e55-407b-b873-304c58230b35">
+</p>
+After confidently hitting send to the list of users, I was sure that this wouldn’t take more than five minutes.And then, A few hours passed with no positive signals. I reassured myself that I had launched the campaign close to the end of the workday when no one checks their emails. Perhaps by tomorrow morning, there would be connections back to my Command-Control system.
+
+The next morning, I woke up early, hoping for a miracle. But of course—nothing happened. I still couldn’t understand why I had failed. Then, just a little while later, the client who hired us started complaining that many of their users’ machines were infected with malware and demanded that we clean up that shit.WHAT? Really? If that’s the case, then why am I still empty-handed?
+
+They confirmed that users had indeed executed our payload. So where did I go wrong?I immediately started searching through the documentation from previous Red Team operations.FUCK—do you know what I found?
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/44c68a73-0c4d-4854-80cf-f9866f95de5c">
+</p>
+
+So, PowerShell was no longer usable, and my malware didn’t execute at all.However, the funniest part? The bank had absolutely no idea what was happening and was completely convinced that we had everything under control 😅.
+
+This failure was quite serious because the number of target users was limited, and I had already used up almost all of them for this campaign (Unwritten rule—you don’t phish the same target twice, remember?) and at the same time, it made their monitoring systems and security policies even stricter.
