@@ -101,7 +101,7 @@ Everything seems fine. The final step is selecting an account to send the malwar
 </p>  
 Simple, right 🤷? But quite effective.
 
-Right after 8 AM today (the employees' working hours), I proceeded to launch the final campaign.Not long after (about 5 minutes later), I received a connection back with 9 sessions. Yay🎉🎉🎉!
+Right after 8 AM the next day (the employees' working hours), I proceeded to launch the final campaign.Not long after (about 5 minutes later), I received a connection back with 9 sessions. Yay🎉🎉🎉!
 <p align="center">
   <img src="https://github.com/user-attachments/assets/00926bbf-edc4-48d8-a430-a9aa4e4c416a">
 </p> 
