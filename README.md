@@ -18,7 +18,7 @@ Resting on the laurels of the SeaBank campaign, I skipped all the setup steps.Th
 </p>
 After confidently hitting send to the list of users, I was sure that this wouldn’t take more than five minutes.And then, A few hours passed with no positive signals. I reassured myself that I had launched the campaign close to the end of the workday when no one checks their emails. Perhaps by tomorrow morning, there would be connections back to my Command-Control system.
 
-The next morning, I woke up early, hoping for a miracle. But of course—nothing happened. I still couldn’t understand why I had failed. Then, just a little while later, the client who hired us started complaining that many of their users’ machines were infected with malware and demanded that we clean up that shit.WHAT? Really? If that’s the case, then why am I still empty-handed?
+The next morning, I woke up early, hoping for a miracle. But of course — nothing happened. I still couldn’t understand why I had failed. Then, just a little while later, the client who hired us started complaining that many of their users’ machines were infected with malware and demanded that we clean up that shit.WHAT? Really? If that’s the case, then why am I still empty-handed?
 
 They confirmed that users had indeed executed our payload. So where did I go wrong?I immediately started searching through the documentation from previous Red Team operations.FUCK - do you know what I found?
 <p align="center">
