@@ -105,7 +105,11 @@ Right after 8 AM today (the employees' working hours), I proceeded to launch the
 <p align="center">
   <img src="https://github.com/user-attachments/assets/00926bbf-edc4-48d8-a430-a9aa4e4c416a">
 </p> 
-But things didn’t stop there. All sent and received data seemed to be intercepted. I tried everything to execute any action on the client, but it was useless. Using tcpdump on the Command-Control server, I noticed that traffic was still being sent and received regularly, but none of my beacons containing commands returned any results.The reason? Easy to spot. They might have deployed another EDR - likely Symantec EDR, as I found earlier. With EDR in place, if no bypass techniques are applied, my beacon would be killed instantly as soon as it reached the client.I was quite complacent, thinking that deploying two security solutions would be costly and unlikely for the target.Secondly, obtaining an installer for Symantec EDR was quite difficult, and since there was no trial version available, I had overlooked it.
+But things didn’t stop there. All sent and received data seemed to be intercepted. I tried everything to execute any action on the client, but it was useless. Using tcpdump on the Command-Control server, I noticed that traffic was still being sent and received regularly, but none of my beacons containing commands returned any results:   
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/21671442-35d7-4c49-bcf6-cdb2aac04abf">
+</p>  
+The reason? Easy to spot. They might have deployed another EDR - likely Symantec EDR, as I found earlier. With EDR in place, if no bypass techniques are applied, my beacon would be killed instantly as soon as it reached the client.I was quite complacent, thinking that deploying two security solutions would be costly and unlikely for the target.Secondly, obtaining an installer for Symantec EDR was quite difficult, and since there was no trial version available, I had overlooked it.
 
 ## IV. Conclusion
 Although the campaign was not entirely successful, I realized the immense potential of phishing. Even after failing twice in this project, the third attempt was successful. At the same time, I gained many valuable lessons from this campaign.
