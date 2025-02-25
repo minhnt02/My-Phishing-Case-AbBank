@@ -12,4 +12,4 @@ As per the usual procedure, the priority was to find internal email accounts.Imp
 
 ## III.The first failure in the campaign
 
-Resting on the laurels of the SeaBank campaign, I skipped all the setup steps, reused the old payload with the same scenario, and sent it to a large number of users with the intent of achieving a quick victory.The account I used in this campaign was a notification account, and of course, the target users were all selected randomly.
+Resting on the laurels of the SeaBank campaign, I skipped all the setup steps, reused the old payload with the same scenario, and sent it to a large number of users with the intent of achieving a quick victory.The account I used in this campaign was a notification account, and of course, the target users were all selected randomly LOL.
