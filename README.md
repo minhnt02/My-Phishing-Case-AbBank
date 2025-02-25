@@ -28,3 +28,5 @@ They confirmed that users had indeed executed our payload. So where did I go wro
 So, PowerShell was no longer usable, and my malware didn’t execute at all.However, the funniest part? The bank had absolutely no idea what was happening and was completely convinced that we had everything under control 😅.
 
 This failure was quite serious because the number of target users was limited, and I had already used up almost all of them for this campaign (Unwritten rule - you don’t phish the same target twice, remember?) and at the same time, it made their monitoring systems and security policies even stricter.
+
+## III.The second failure in the campaign
