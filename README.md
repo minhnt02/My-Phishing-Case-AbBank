@@ -40,7 +40,7 @@ Creating a Shellcode Loader is extremely simple:
 &emsp;&emsp;2.Encrypt data.bin with the PowerShell script commented in the provided loader.cs (using XOR encryption).  
 &emsp;&emsp;3.This results in a new payload → xor_data.bin.  
 &emsp;&emsp;4.Compile loader.cs with xor_data.bin as a resource using the following command:```csc /out:loader.exe /resource:xor_data.bin loader.cs```  
-So, what’s special about this loader? The answer is—nothing at all. It’s just the usual P/Invoke tricks and the classic XOR encryption.However, the test results were quite successful. It ran smoothly against Windows Defender, and the VirusTotal scan results were decent.(Not recommended to use VirusTotal unless you’ve completely lost faith in yourself.)
+So, what’s special about this loader? The answer is—nothing at all. It’s just the usual P/Invoke tricks and the classic XOR encryption.However, the test results were quite successful. It ran smoothly against Windows Defender, and the VirusTotal scan results were decent(not recommended to use VirusTotal unless you’ve completely lost faith in yourself):
 <p align="center">
   <img src="https://github.com/user-attachments/assets/e13582ba-28e4-4f37-8c3f-392c8f4b89fe">
 </p>
