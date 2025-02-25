@@ -34,3 +34,9 @@ This failure was quite serious because the number of target users was limited, a
 After the first failure, my simple thought was, 'If they don’t let me run PowerShell, I’ll just switch to running an EXE' - LOL.(Of course, their Mail Gateway allowed .EXE files. We can check which file formats are permitted by simply sending a payload to our own account).
 
 Thus, when it comes to payloads in EXE format, the first thing that comes to mind is definitely 'Shellcode Loader.' 😅
+
+Creating a Shellcode Loader is extremely simple:  
+&emsp;&emsp;1.Generate a raw payload (exitfunc=Thread) using Cobalt Strike → data.bin.  
+&emsp;&emsp;2.Encrypt data.bin with the PowerShell script commented in the provided loader.cs (using XOR encryption).  
+&emsp;&emsp;3.This results in a new payload → xor_data.bin.  
+&emsp;&emsp;4.Compile loader.cs with xor_data.bin as a resource using the following command:```csc /out:loader.exe /resource:xor_data.bin loader.cs```
