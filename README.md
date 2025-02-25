@@ -20,7 +20,7 @@ After confidently hitting send to the list of users, I was sure that this wouldn
 
 The next morning, I woke up early, hoping for a miracle. But of course—nothing happened. I still couldn’t understand why I had failed. Then, just a little while later, the client who hired us started complaining that many of their users’ machines were infected with malware and demanded that we clean up that shit.WHAT? Really? If that’s the case, then why am I still empty-handed?
 
-They confirmed that users had indeed executed our payload. So where did I go wrong?I immediately started searching through the documentation from previous Red Team operations.FUCK—do you know what I found?
+They confirmed that users had indeed executed our payload. So where did I go wrong?I immediately started searching through the documentation from previous Red Team operations.FUCK - do you know what I found?
 <p align="center">
   <img src="https://github.com/user-attachments/assets/44c68a73-0c4d-4854-80cf-f9866f95de5c">
 </p>
