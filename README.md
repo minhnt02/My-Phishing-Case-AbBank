@@ -45,4 +45,21 @@ So, what’s special about this loader? The answer is - nothing at all. It’s j
   <img src="https://github.com/user-attachments/assets/e13582ba-28e4-4f37-8c3f-392c8f4b89fe">
 </p>
 
-Since this was probably my first time seeing it in C#, I thought it seemed special and decided to use it for my second campaign.
+Since this was probably my first time seeing it in C#, I thought it seemed special and decided to use it for my second campaign.I still stubbornly reused the old scenario with a different notification account. The only thing I changed was the properties of the Link Shortcut file 🤷:
+```
+C:\Windows\System32\cmd.exe .\Thong_tin_cve\Thong_tin_chi_tiet.exe
+```
+And of course, after half a day, I got nothing again.
+
+I had a hunch about why I failed.Regaining my composure, I restarted my recon from scratch, aiming to gather information about the AV solution the organization was using.Through Google Dorking and Subdomain Enumeration, I identified two security solutions in use: Symantec EDR and McAfee Antivirus:
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/8919cea7-dca8-4fd6-9e06-8a6e7fac0e4e">
+</p>  
+<p align="center">McAfee public Agent</p>  
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c7a74827-cc78-4975-81c4-90421e7c54ad">
+</p>  
+<p align="center">Decision on Extending Symantec EDR</p>  
+
+Based on the timeline, I noticed that McAfee seemed to have been implemented more recently than Symantec EDR. So, I hypothesized that McAfee had replaced Symantec EDR.I immediately signed up for a trial of the latest version of McAfee, installed it, and conducted local testing.The result? The moment I dropped my Shellcode Loader, the system instantly deleted it and raised an alert. It didn’t even last half a second before being wiped out. 😂
