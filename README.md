@@ -30,3 +30,7 @@ So, PowerShell was no longer usable, and my malware didn’t execute at all.Howe
 This failure was quite serious because the number of target users was limited, and I had already used up almost all of them for this campaign (Unwritten rule - you don’t phish the same target twice, remember?) and at the same time, it made their monitoring systems and security policies even stricter.
 
 ## III.The second failure in the campaign
+
+After the first failure, my simple thought was, 'If they don’t let me run PowerShell, I’ll just switch to running an EXE' - LOL.(Of course, their Mail Gateway allowed .EXE files. We can check which file formats are permitted by simply sending a payload to our own account).
+
+Thus, when it comes to payloads in EXE format, the first thing that comes to mind is definitely 'Shellcode Loader.' 😅
