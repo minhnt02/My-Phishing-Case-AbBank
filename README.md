@@ -63,10 +63,10 @@ I had a hunch about why I failed.Regaining my composure, I restarted my recon fr
 <p align="center">Decision on Extending Symantec EDR</p>  
 
 Based on the timeline, I noticed that McAfee seemed to have been implemented more recently than Symantec EDR. So, I hypothesized that McAfee had replaced Symantec EDR.I immediately signed up for a trial of the latest version of McAfee, installed it, and conducted local testing.The result? The moment I dropped my Shellcode Loader, the system instantly deleted it and raised an alert. It didn’t even last half a second before being wiped out😂.
-The question here is—why was it deleted?Technically, the code itself was completely harmless before execution.After some testing, I realized that McAfee automatically eliminates any file containing P/Invoke calls to Windows APIs commonly used for shellcode injection, as well as the Marshal.Copy method from .NET (These are legitimate APIs, by the way - so now I’m wondering, is McAfee actually a type of malware? 😂)
+The question here is - why was it deleted?Technically, the code itself was completely harmless before execution.After some testing, I realized that McAfee automatically eliminates any file containing P/Invoke calls to Windows APIs commonly used for shellcode injection, as well as the Marshal.Copy method from .NET (These are legitimate APIs, by the way - so now I’m wondering, is McAfee actually a type of malware? 😂)
 
 Injecting shellcode without using Windows APIs or .NET functions is extremely difficult.So instead of trying to make the .exe format work, why not switch to a different format that is less monitored by AV?In this case, .DLL is a strong candidate. Why? Because:  
-&emsp;&emsp;+)DLL files cannot run independently—they must be executed via rundll32. Files that cannot execute on their own are generally monitored less than standalone executables(as long as we modify the signature to be different).  
+&emsp;&emsp;+)DLL files cannot run independently - they must be executed via rundll32. Files that cannot execute on their own are generally monitored less than standalone executables(as long as we modify the signature to be different).  
 &emsp;&emsp;+)DLL files can be loaded regardless of their format (even as .xlsx), making them highly flexible - another way to bypass Mail Gateway.  
 
 ## III.Success 50% (from my perspective 🤷) in the third campaign.  
