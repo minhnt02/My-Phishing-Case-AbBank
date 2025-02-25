@@ -62,4 +62,50 @@ I had a hunch about why I failed.Regaining my composure, I restarted my recon fr
 </p>  
 <p align="center">Decision on Extending Symantec EDR</p>  
 
-Based on the timeline, I noticed that McAfee seemed to have been implemented more recently than Symantec EDR. So, I hypothesized that McAfee had replaced Symantec EDR.I immediately signed up for a trial of the latest version of McAfee, installed it, and conducted local testing.The result? The moment I dropped my Shellcode Loader, the system instantly deleted it and raised an alert. It didn’t even last half a second before being wiped out. 😂
+Based on the timeline, I noticed that McAfee seemed to have been implemented more recently than Symantec EDR. So, I hypothesized that McAfee had replaced Symantec EDR.I immediately signed up for a trial of the latest version of McAfee, installed it, and conducted local testing.The result? The moment I dropped my Shellcode Loader, the system instantly deleted it and raised an alert. It didn’t even last half a second before being wiped out😂.
+The question here is—why was it deleted?Technically, the code itself was completely harmless before execution.After some testing, I realized that McAfee automatically eliminates any file containing P/Invoke calls to Windows APIs commonly used for shellcode injection, as well as the Marshal.Copy method from .NET (These are legitimate APIs, by the way - so now I’m wondering, is McAfee actually a type of malware? 😂)
+
+Injecting shellcode without using Windows APIs or .NET functions is extremely difficult.So instead of trying to make the .exe format work, why not switch to a different format that is less monitored by AV?In this case, .DLL is a strong candidate. Why? Because:  
+&emsp;&emsp;+)DLL files cannot run independently—they must be executed via rundll32. Files that cannot execute on their own are generally monitored less than standalone executables(as long as we modify the signature to be different).  
+&emsp;&emsp;+)DLL files can be loaded regardless of their format (even as .xlsx), making them highly flexible - another way to bypass Mail Gateway.  
+
+## III.Success 50% (from my perspective 🤷) in the third campaign.  
+Now that we have a plan, it's time to execute!  
+The content of the .DLL file will be in the following format:  
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4f0e0867-746a-4517-9ae9-5d05c1fdd181">
+</p>
+Basically, it is no different from the previously used C# Shellcode Loader: it uses VirtualAlloc to allocate memory for the current process, memcpy to write the shellcode into the allocated memory, and executes the shellcode by running a thread through a function pointer.
+
+Setup local and test:
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/671847f5-bf2c-4143-af93-3497f1a11488">
+</p>  
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/2a1fd77a-32b4-4e80-95ad-5b70a8d42bf8">
+</p>  
+======> Done!  
+
+Re-weaponizing the payload:  
+.LNK attributes: 
+
+```C:\Windows\System32\rundll32.exe .\Danh_Sach_Yeu_Cau_Cap_Chung_Tu.xlsx,Main```  
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b32eccd9-a59b-4f6b-8b41-585737f4ffc4">
+</p>   
+======> Done!
+
+Everything seems fine. The final step is selecting an account to send the malware. During the previous reconnaissance process, I had gained access to a user account from the "Accounting Documents" department. Therefore, this time, I will create a scenario targeting the Finance department.After listing the users, I found about 50 people(Use exchanger.py to dump all information from the domain and filter employees belonging to the target department through string search) working in this department, along with a sample email that had been used before. Finally, my scenario is as follows:
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b9498baf-b375-47b8-afee-2bffe26e8995">
+</p>  
+Simple, right 🤷? But quite effective.
+
+Right after 8 AM today (the employees' working hours), I proceeded to launch the final campaign.Not long after (about 5 minutes later), I received a connection back with 9 sessions. Yay🎉🎉🎉!
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/00926bbf-edc4-48d8-a430-a9aa4e4c416a">
+</p> 
+But things didn’t stop there. All sent and received data seemed to be intercepted. I tried everything to execute any action on the client, but it was useless. Using tcpdump on the Command-Control server, I noticed that traffic was still being sent and received regularly, but none of my beacons containing commands returned any results.The reason? Easy to spot. They might have deployed another EDR - likely Symantec EDR, as I found earlier. With EDR in place, if no bypass techniques are applied, my beacon would be killed instantly as soon as it reached the client.I was quite complacent, thinking that deploying two security solutions would be costly and unlikely for the target.Secondly, obtaining an installer for Symantec EDR was quite difficult, and since there was no trial version available, I had overlooked it.
+
+## IV. Conclusion
+Although the campaign was not entirely successful, I realized the immense potential of phishing. Even after failing twice in this project, the third attempt was successful. At the same time, I gained many valuable lessons from this campaign.
