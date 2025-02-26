@@ -99,7 +99,7 @@ Re-weaponizing the payload:
 
 Everything seems fine. The final step is selecting an account to send the malware. During the previous reconnaissance process, I had gained access to a user account from the "Accounting Documents" department. Therefore, this time, I will create a scenario targeting the Finance department.After listing the users, I found about 50 people(Use exchanger.py to dump all information from the domain and filter employees belonging to the target department through string search) working in this department, along with a sample email that had been used before. Finally, my scenario is as follows:
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/52dfa2c6-5dc9-406a-a387-fcec2167595a">
+  <img src="https://github.com/user-attachments/assets/ff675652-6c3b-4e1d-bebc-81ffd6b73854">
 </p>  
 Simple, right 🤷? But quite effective.
 
