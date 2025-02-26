@@ -1,18 +1,18 @@
-<h1 align="center">🎣 My Phishing Case - ABBank 🎣</h1>
+<h1 align="center">🎣 My Phishing Case - 2 🎣</h1>
 
 ## I.The price to pay for laziness
 
-After the success of the Phishing campaign targeting SeaBank, I was assigned the task of launching the next Phishing campaign against ABBank. However, as described, I suffered two consecutive failures in this campaign due to my laziness.
+After the success of the previous Phishing campaign , I was assigned the task of launching the next Phishing campaign on another target. However, as described, I suffered two consecutive failures in this campaign due to my laziness.
 In Phishing campaigns, reconnaissance of AV, EDR solutions, etc., is mandatory. You can use Google Dorking to search for leaked solution policies, or identify specific public agents for certain EDR and AV solutions, or simply leverage resources from previous Red Team campaigns. After that, setting up and testing locally is crucial. Unfortunately, in this campaign, I completely skipped all these fundamental steps 😃.
 
 ## II. Reconnaissance to Create a Target List
 The Recon step was quite basic: searching for email lists (use search engine like IntelX) for brute-force purposes and looking for publicly accessible webmail portals to log in.
 
-As per the usual procedure, the priority was to find internal email accounts.Implement brute-force , in this case, I managed to find a considerable number of accessible email accounts, including notification accounts and user accounts.(I still recommend using ruler-linux64 along with a password list, as it has proven to be highly effective.)OK, everything seems to be going smoothly in the beginning😂.
+As per the usual procedure, the priority was to find internal email accounts.Implement brute-force , in this case, I managed to find a considerable number of accessible email accounts, including notification accounts and user accounts.(I still recommend using ruler-linux64 along with a password list, as it has proven to be highly effective) OK, everything seems to be going smoothly in the beginning😂.
 
 ## III.The first failure in the campaign
 
-Resting on the laurels of the SeaBank campaign, I skipped all the setup steps.The account I used in this campaign was a notification account, the list of target users was very large and all randomly selected and of course, the payload I reused remained completely unchanged LOL.
+Resting on the laurels of the previous campaign, I skipped all the setup steps.The account I used in this campaign was a notification account, the list of target users was very large and all randomly selected and of course, the payload I reused remained completely unchanged LOL.
 <p align="center">
   <img src="https://github.com/user-attachments/assets/7c9a5fa0-0e55-407b-b873-304c58230b35">
 </p>
@@ -22,16 +22,16 @@ The next morning, I woke up early, hoping for a miracle. But of course — nothi
 
 They confirmed that users had indeed executed our payload. So where did I go wrong?I immediately started searching through the documentation from previous Red Team operations.FUCK - do you know what I found?
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/44c68a73-0c4d-4854-80cf-f9866f95de5c">
+  <img src="https://github.com/user-attachments/assets/17d269e8-9a2b-49f2-8955-08b746d42d38">
 </p>
 
-So, PowerShell was no longer usable, and my malware didn’t execute at all.However, the funniest part? The bank had absolutely no idea what was happening and was completely convinced that we had everything under control 😅.
+So, PowerShell was no longer usable, and my malware didn’t execute at all.However, the funniest part? The target had absolutely no idea what was happening and was completely convinced that we had everything under control 😅.
 
 This failure was quite serious because the number of target users was limited, and I had already used up almost all of them for this campaign (Unwritten rule - you don’t phish the same target twice, remember?) and at the same time, it made their monitoring systems and security policies even stricter.
 
 ## III.The second failure in the campaign
 
-After the first failure, my simple thought was, 'If they don’t let me run PowerShell, I’ll just switch to running an EXE' - LOL.(Of course, their Mail Gateway allowed .EXE files. We can check which file formats are permitted by simply sending a payload to our own account).
+After the first failure, my simple thought was, 'If they don’t let me run PowerShell, I’ll just switch to running an EXE - LOL.(Of course, their Mail Gateway allowed .EXE files. We can check which file formats are permitted by simply sending a payload to our own account).
 
 Thus, when it comes to payloads in EXE format, the first thing that comes to mind is definitely 'Shellcode Loader.' 😅
 
@@ -53,13 +53,15 @@ And of course, after half a day, I got nothing again.
 
 I had a hunch about why I failed.Regaining my composure, I restarted my recon from scratch, aiming to gather information about the AV solution the organization was using.Through Google Dorking and Subdomain Enumeration, I identified two security solutions in use: Symantec EDR and McAfee Antivirus:
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/8919cea7-dca8-4fd6-9e06-8a6e7fac0e4e">
+  <img src="https://github.com/user-attachments/assets/dce099e3-f9dd-4a3e-ad67-f68d25bff08a">
 </p>  
+
 <p align="center">McAfee public Agent</p>  
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/c7a74827-cc78-4975-81c4-90421e7c54ad">
+  <img src="https://github.com/user-attachments/assets/ea846976-adf0-4a9f-a3d3-2a1c7dab1904">
 </p>  
+
 <p align="center">Decision on Extending Symantec EDR</p>  
 
 Based on the timeline, I noticed that McAfee seemed to have been implemented more recently than Symantec EDR. So, I hypothesized that McAfee had replaced Symantec EDR.I immediately signed up for a trial of the latest version of McAfee, installed it, and conducted local testing.The result? The moment I dropped my Shellcode Loader, the system instantly deleted it and raised an alert. It didn’t even last half a second before being wiped out😂.
