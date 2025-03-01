@@ -1,6 +1,6 @@
 <h1 align="center">🎣 My Phishing Case - 2 🎣</h1>
 
-## I.The price to pay for laziness
+## I. The price to pay for laziness
 
 After the success of the previous Phishing campaign , I was assigned the task of launching the next Phishing campaign on another target. However, as described, I suffered two consecutive failures in this campaign due to my laziness.
 In Phishing campaigns, reconnaissance of AV, EDR solutions, etc., is mandatory. You can use Google Dorking to search for leaked solution policies, or identify specific public agents for certain EDR and AV solutions, or simply leverage resources from previous Red Team campaigns. After that, setting up and testing locally is crucial. Unfortunately, in this campaign, I completely skipped all these fundamental steps 😃.
@@ -10,7 +10,7 @@ The Recon step was quite basic: searching for email lists (use search engine lik
 
 As per the usual procedure, the priority was to find internal email accounts.Implement brute-force , in this case, I managed to find a considerable number of accessible email accounts, including notification accounts and user accounts.(I still recommend using ruler-linux64 along with a password list, as it has proven to be highly effective) OK, everything seems to be going smoothly in the beginning😂.
 
-## III.The first failure in the campaign
+## III. The first failure in the campaign
 
 Resting on the laurels of the previous campaign, I skipped all the setup steps.The account I used in this campaign was a notification account, the list of target users was very large and all randomly selected and of course, the payload I reused remained completely unchanged LOL.
 <p align="center">
@@ -29,7 +29,7 @@ So, PowerShell was no longer usable, and my malware didn’t execute at all.Howe
 
 This failure was quite serious because the number of target users was limited, and I had already used up almost all of them for this campaign (Unwritten rule - you don’t phish the same target twice, remember?) and at the same time, it made their monitoring systems and security policies even stricter.
 
-## III.The second failure in the campaign
+## IV. The second failure in the campaign
 
 After the first failure, my simple thought was, 'If they don’t let me run PowerShell, I’ll just switch to running an EXE - LOL.(Of course, their Mail Gateway allowed .EXE files. We can check which file formats are permitted by simply sending a payload to our own account).
 
@@ -71,7 +71,7 @@ Injecting shellcode without using Windows APIs or .NET functions is extremely di
 &emsp;&emsp;+)DLL files cannot run independently - they must be executed via rundll32. Files that cannot execute on their own are generally monitored less than standalone executables(as long as we modify the signature to be different).  
 &emsp;&emsp;+)DLL files can be loaded regardless of their format (even as .xlsx), making them highly flexible - another way to bypass Mail Gateway.  
 
-## III.Success 50% (from my perspective 🤷) in the third campaign.  
+## V. Success 50% (from my perspective 🤷) in the third campaign.  
 Now that we have a plan, it's time to execute!  
 The content of the .DLL file will be in the following format:  
 <p align="center">
@@ -95,8 +95,9 @@ Re-weaponizing the payload:
 <p align="center">
   <img src="https://github.com/user-attachments/assets/b32eccd9-a59b-4f6b-8b41-585737f4ffc4">
 </p>   
-======> Done!
+======> Done!  
 
+## VI. Drop DOWN  
 Everything seems fine. The final step is selecting an account to send the malware. During the previous reconnaissance process, I had gained access to a user account from the "Accounting Documents" department. Therefore, this time, I will create a scenario targeting the Finance department.After listing the users, I found about 50 people(Use exchanger.py to dump all information from the domain and filter employees belonging to the target department through string search) working in this department, along with a sample email that had been used before. Finally, my scenario is as follows:
 <p align="center">
   <img src="https://github.com/user-attachments/assets/ff675652-6c3b-4e1d-bebc-81ffd6b73854">
@@ -113,6 +114,6 @@ But things didn’t stop there. All sent and received data seemed to be intercep
 </p>  
 The reason? Easy to spot. They might have deployed another EDR - likely Symantec EDR, as I found earlier. With EDR in place, if no bypass techniques are applied, my beacon would be killed instantly as soon as it reached the client.I was quite complacent, thinking that deploying two security solutions would be costly and unlikely for the target.Secondly, obtaining an installer for Symantec EDR was quite difficult, and since there was no trial version available, I had overlooked it.
 
-## IV. Conclusion
+## VII. Conclusion
 Although the campaign was not entirely successful, I realized the immense potential of phishing. Even after failing twice in this project, the third attempt was successful. At the same time, I gained many valuable lessons from this campaign.
 
