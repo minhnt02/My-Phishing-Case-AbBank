@@ -97,7 +97,6 @@ Re-weaponizing the payload:
 </p>   
 ======> Done!  
 
-## VI. Drop DOWN  
 Everything seems fine. The final step is selecting an account to send the malware. During the previous reconnaissance process, I had gained access to a user account from the "Accounting Documents" department. Therefore, this time, I will create a scenario targeting the Finance department.After listing the users, I found about 50 people(Use exchanger.py to dump all information from the domain and filter employees belonging to the target department through string search) working in this department, along with a sample email that had been used before. Finally, my scenario is as follows:
 <p align="center">
   <img src="https://github.com/user-attachments/assets/ff675652-6c3b-4e1d-bebc-81ffd6b73854">
@@ -114,6 +113,6 @@ But things didn’t stop there. All sent and received data seemed to be intercep
 </p>  
 The reason? Easy to spot. They might have deployed another EDR - likely Symantec EDR, as I found earlier. With EDR in place, if no bypass techniques are applied, my beacon would be killed instantly as soon as it reached the client.I was quite complacent, thinking that deploying two security solutions would be costly and unlikely for the target.Secondly, obtaining an installer for Symantec EDR was quite difficult, and since there was no trial version available, I had overlooked it.
 
-## VII. Conclusion
+## VI. Conclusion
 Although the campaign was not entirely successful, I realized the immense potential of phishing. Even after failing twice in this project, the third attempt was successful. At the same time, I gained many valuable lessons from this campaign.
 
